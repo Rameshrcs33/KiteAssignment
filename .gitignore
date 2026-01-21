@@ -1,2 +1,16 @@
 node_modules
 .expo
+
+expo-env.d.ts
+web-build
+dist
+build
+.DS_Store
+npm-debug.log
+yarn-error.log
+.vscode
+.idea
+.env
+
+package-lock.json
+yarn.lock
