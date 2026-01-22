@@ -95,10 +95,6 @@ const eventSlice = createSlice({
   name: "event",
   initialState,
   reducers: {
-    setSports: (state, action: PayloadAction<DropdownItem[]>) => {
-      state.sports = action.payload;
-    },
-
     createEvent: (state, action: PayloadAction<Event>) => {
       state.events.push(action.payload);
     },
@@ -159,22 +155,6 @@ const eventSlice = createSlice({
       }
     },
 
-    rejectEvent: (state, action: PayloadAction<OrganizerActionPayload>) => {
-      const event = findEventById(state.events, action.payload.eventId);
-      if (!event) return;
-
-      event.isCancelledByOrganizer = true;
-      event.cancelledAt = new Date().toISOString();
-      event.originalStartDate = event.startDate;
-      event.originalStartTime = event.startTime;
-      event.startDate = new Date().toISOString().split("T")[0];
-      event.startTime = "00:00";
-      event.requests = removeParticipant(
-        event.requests,
-        action.payload.organizerId,
-      );
-    },
-
     acceptParticipant: (
       state,
       action: PayloadAction<AcceptParticipantPayload>,
@@ -203,13 +183,11 @@ const eventSlice = createSlice({
 });
 
 export const {
-  setSports,
   createEvent,
   joinEvent,
   cancelJoinEvent,
   cancelEvent,
   reactivateEvent,
-  rejectEvent,
   acceptParticipant,
   rejectParticipant,
 } = eventSlice.actions;

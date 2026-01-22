@@ -42,7 +42,8 @@ const authSlice = createSlice({
 
       const existingEmailUser = state.signupData.find(
         (user) =>
-          user.email && user.email.toLowerCase() === action.payload.email.toLowerCase(),
+          user.email &&
+          user.email.toLowerCase() === action.payload.email.toLowerCase(),
       );
 
       if (existingMobileUser) {
