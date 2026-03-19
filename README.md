@@ -23,6 +23,7 @@ Automatically expire pending requests once the event starts
 All data is stored locally (in-memory / localStorage / AsyncStorage).
 
 ### Features
+
 ### Authentication
 
 User must sign up first before logging in
@@ -49,6 +50,7 @@ View all future events, sorted by start time (ascending)
 
 ### Joining Events
 
+Any user can request to join an event (if slots are available)
 Any user can request to join an event (if slots are available)
 
 Event organizers can:
